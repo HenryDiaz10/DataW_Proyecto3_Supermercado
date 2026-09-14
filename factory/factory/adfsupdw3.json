@@ -1,0 +1,15 @@
+{
+	"name": "adfsupdw3",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "brazilsouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8f030493-0048-4e73-8ec1-6139a8f9ae41",
+		"tenantId": "1c987425-de87-4612-ab1e-0ca61025d403"
+	}
+}
