@@ -1,0 +1,28 @@
+# ==============================================================================
+# Script: 05_infraestructura_adls.azcli
+# Descripción: Creación de Azure Data Lake Storage Gen2 y contenedores Medallion
+# Proyecto: Supermercado - Arquitectura Medallion con CDC
+# ==============================================================================
+
+# 1. Crear la cuenta de almacenamiento con espacio de nombres jerárquico (ADLS Gen2)
+az storage account create \
+  --name datalakesupdw3 \
+  --resource-group RG_DataW_Supermercado \
+  --location brazilsouth \
+  --sku Standard_LRS \
+  --enable-hierarchical-namespace true
+
+# 2. Crear el contenedor 'bronze' (Capa cruda / ingesta inicial por CDC)
+az storage fs create \
+  --name bronze \
+  --account-name datalakesupdw3
+
+# 3. Crear el contenedor 'silver' (Capa limpia / microlotes transformados)
+az storage fs create \
+  --name silver \
+  --account-name datalakesupdw3
+
+# 4. Crear el contenedor 'gold' (Capa de negocio / modelo dimensional)
+az storage fs create \
+  --name gold \
+  --account-name datalakesupdw3
