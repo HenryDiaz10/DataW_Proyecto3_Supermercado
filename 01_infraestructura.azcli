@@ -1,0 +1,11 @@
+# 1. Crear el grupo de recursos en Brasil
+az group create --name RG_DataW_Supermercado --location brazilsouth
+
+# 2. Crear el servidor lógico
+az sql server create --name henryserverdw --resource-group RG_DataW_Supermercado --admin-user henry --admin-password "Henrydt280507."
+
+# 3. Crear la base de datos transaccional
+az sql db create --resource-group RG_DataW_Supermercado --server henryserverdw --name Favorita_OLTP --service-objective Basic
+
+# 4. Habilitar el Firewall para la PC local
+az sql server firewall-rule create --resource-group RG_DataW_Supermercado --server henryserverdw --name PermitirAccesoPC --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
