@@ -1,0 +1,11 @@
+# ==============================================================================
+# Script: 06_infraestructura_adf.azcli
+# Descripción: Creación de Azure Data Factory para orquestación y captura CDC
+# Proyecto: Supermercado - Arquitectura Medallion con CDC
+# ==============================================================================
+
+# Crear el recurso de Azure Data Factory
+az datafactory create \
+  --name adfsupdw3 \
+  --resource-group RG_DataW_Supermercado \
+  --location brazilsouth
