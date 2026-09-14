@@ -1,0 +1,10 @@
+{
+    "name": "LS_ADLS_Destino",
+    "properties": {
+        "annotations": [],
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://datalakesupdw3.dfs.core.windows.net"
+        }
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "name": "PL_Ingesta_CDC_Bronze",
+    "properties": {
+        "description": "Pipeline para ingesta incremental basada en CDC desde Azure SQL hacia la capa Bronze del Data Lake",
+        "activities": [
+            {
+                "name": "Copy_CDC_To_Bronze",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 3,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "AzureSqlSource",
+                        "sqlReaderQuery": "SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_TuTabla(@from_lsn, @to_lsn, 'all')",
+                        "queryTimeout": "02:00:00",
+                        "partitionOption": "None"
+                    },
+                    "sink": {
+                        "type": "ParquetSink",
+                        "storeSettings": {
+                            "type": "AzureBlobFSWriteSettings"
+                        }
+                    },
+                    "enableStaging": false
+                }
+            }
+        ],
+        "annotations": []
+    }
+}
