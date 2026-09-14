@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfsupdw3"
+		},
+		"LS_ADLS_Destino_accountKey": {
+			"value": ""
+		},
+		"LS_Azure_SQL_Origen_password": {
+			"value": ""
+		},
+		"LS_ADLS_Destino_properties_typeProperties_url": {
+			"value": "https://datalakesupdw3.dfs.core.windows.net/"
+		},
+		"LS_Azure_SQL_Origen_properties_typeProperties_server": {
+			"value": "henryserverdw.database.windows.net"
+		},
+		"LS_Azure_SQL_Origen_properties_typeProperties_database": {
+			"value": "Sup_dw3_OLTP"
+		},
+		"LS_Azure_SQL_Origen_properties_typeProperties_userName": {
+			"value": "henry"
+		}
+	}
+}
