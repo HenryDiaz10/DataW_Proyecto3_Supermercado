@@ -1,0 +1,56 @@
+{
+	"name": "ds_sql_ventas_origen",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Azure_SQL_Origen",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "fecha",
+				"type": "date"
+			},
+			{
+				"name": "store_nbr",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "item_nbr",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sales",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "onpromotion",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "cliente_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "metodo_id",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ventas_detalle"
+		}
+	}
+}
